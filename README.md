@@ -34,4 +34,4 @@ Here are the environment variables you need to define:
        -e GITHUB_PROJECT=$GITHUB_PROJECT \
        -e GITHUB_TOKEN=$GITHUB_TOKEN \
        -e SQUEAL=True \
-       squealer
+       docker.io/ashmastaflash/squealer
