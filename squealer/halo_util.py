@@ -42,9 +42,10 @@ class SecurityReporter(object):
                 result = {"result": message}
             raw_scan_results.append(results)
         # Process and print scan results
-        # pretty = self.print_pretty_scans(raw_scan_results)
+        pretty = self.print_pretty_scans(raw_scan_results)
         return raw_scan_results
 
     def print_pretty_scans(self, raw_scan_results):
+        print "RAW SCAN RESULTS:"
         pp = pprint.PrettyPrinter()
         pp.pprint(raw_scan_results)
