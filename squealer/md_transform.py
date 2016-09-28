@@ -26,7 +26,7 @@ class MarkDowner(object):
         result = ""
         for detail in details:
             try:
-                detail_text = details["pattern"]
+                detail_text = detail["pattern"]
             except:
                 detail_text = ""
             result = result + "| %s | %s | %s | %s | %s |\n" % (str(detail["type"]),
