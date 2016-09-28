@@ -25,9 +25,9 @@ class MarkDowner(object):
     def format_csm_finding_details(cls, details):
         result = ""
         for detail in details:
-            if "pattern" in details:
+            try:
                 detail_text = details["pattern"]
-            else:
+            except:
                 detail_text = ""
             result = result + "| %s | %s | %s | %s | %s |\n" % (str(detail["type"]),
                                                                 str(detail["expected"]),
