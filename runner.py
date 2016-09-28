@@ -11,7 +11,6 @@ squeal = os.getenv("SQUEAL", "NO")
 subject = "CloudPassage Halo Detected Issues on Build %s" % str(commit_id)
 github_issue_body = ""
 critical_findings = False
-create_issue = False
 
 raw_results = reporter.scan_all_modules(agent_id)
 for result in raw_results:
@@ -19,10 +18,11 @@ for result in raw_results:
         github_issue_body = github_issue_body + squealer.MarkDowner.translate_csm(result)
         if result["scan"]["critical_findings_count"] != 0:
             critical_findings = True
-        if result["scan"]["non_critical_findings_count"] != 0:
-            create_issue = True
+        else:
+            print "Critical findings are zero.  Go you."
 
-if create_issue is True:
+
+if github_issue_body != "":
     print "Submitting issue to Github:"
     print project
     print subject
