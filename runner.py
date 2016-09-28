@@ -8,14 +8,14 @@ gh_token = os.getenv("GITHUB_TOKEN")
 project = os.getenv("GITHUB_PROJECT")
 commit_id = os.getenv("COMMIT_ID")
 squeal = os.getenv("SQUEAL", "NO")
-subject = "CloudPassage Halo Detected Issues on Build %s" % str(commit_id)
+subject = "CloudPassage Halo Detected Issues on Building %s" % str(commit_id)
 github_issue_body = ""
 critical_findings = False
 
 raw_results = reporter.scan_all_modules(agent_id)
 for result in raw_results:
     if result["scan"]["module"] == "sca":
-        github_issue_body = github_issue_body + squealer.MarkDowner.translate_csm(result)
+        github_issue_body = github_issue_body + squealer.MarkDowner.translate_csm(result, commit_id)
         if result["scan"]["critical_findings_count"] != 0:
             critical_findings = True
         else:
