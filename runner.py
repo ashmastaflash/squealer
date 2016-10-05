@@ -22,7 +22,7 @@ for result in raw_results:
             print "Critical findings are zero.  Go you."
 
 
-if github_issue_body != "":
+if critical_findings is True:
     print "Submitting issue to Github:"
     print project
     print subject
